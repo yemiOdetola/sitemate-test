@@ -1,10 +1,13 @@
 import express from "express";
+import cors from "cors";
 import { IssueService } from "./services/issue";
 import { IssueController } from "./controllers/issue";
 
 const app = express();
 app.use(express.json());
 const port = 3000;
+
+app.use(cors({ origin: "http://localhost:3001" }));
 
 const db = new IssueService();
 const issueController = new IssueController(db);

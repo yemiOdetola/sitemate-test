@@ -15,7 +15,7 @@ export class IssueService {
   create(issue: Omit<Issue, "id" | "createdAt" | "updatedAt">): Issue {
     const newIssue: Issue = {
       ...issue,
-      id: issues.length.toString(),
+      id: (issues.length + 1).toString(),
       createdAt: new Date(),
       updatedAt: new Date(),
     };
